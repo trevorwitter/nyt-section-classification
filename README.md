@@ -21,9 +21,12 @@ Model Summary:
 
 ### Results
 Model achieved 80.5% accuracy on test dataset
+
+
 ![loss](/images/loss.png)
 ![accuracy](/images/acc.png)
 
-Confusion Matrix
+#### Confusion Matrix
+
 ![confusion matrix](/images/nyt_glove_lstm_cm.png)
 
