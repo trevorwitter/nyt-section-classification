@@ -13,4 +13,4 @@ RNN layers
 - vector representations then used to train LSTM recurrent neural network
 
 Model Summary:
-[Model Summary](https://github.com/trevorwitter/nyt-section-classification/blob/master/images/model_summary.png)
+![Model Summary](/images/model_summary.png)
