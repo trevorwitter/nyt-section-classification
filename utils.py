@@ -7,7 +7,8 @@ import json
 
 def get_nyt_data(start='1/19', end='12/19'):
     """
-    Returns text data from nyt as df
+    Returns df with section name,headline, kicker, abstract, lead_paragraph, snippet, 
+    keywords and publication date for all nyt articles published in specified date range.
     """
     start_date = datetime.strptime(start, '%m/%y')
     start_month = start_date.month
@@ -19,18 +20,11 @@ def get_nyt_data(start='1/19', end='12/19'):
 
     months = []
     years = []
-    for x in range(start_year, end_year+1):
-        yr = str(x)
+    for yr in range(start_year, end_year+1):
         years.append(yr)
-        for y in range(start_month, end_month+1):
-            m = str(y)
-            #m = y
-            #if len(m) == 1:
-            #    m = '0'+m
+        for m in range(start_month, end_month+1):
             months.append(m)
             
-    print(months)
-    print(years)
     df = pd.DataFrame(columns=['section_name',
                                'headline',
                                'kicker',
@@ -43,8 +37,7 @@ def get_nyt_data(start='1/19', end='12/19'):
     for year in years:
         for month in months:
             print(month, year)
-            #url = "https://api.nytimes.com/svc/archive/v1/{0}/{1}.json?api-key={2}".format(year,month,config.api_key)
-            url = "https://api.nytimes.com/svc/archive/v1/2019/{0}.json?api-key={1}".format(month,config.api_key)
+            url = "https://api.nytimes.com/svc/archive/v1/{0}/{1}.json?api-key={2}".format(year,month,config.api_key)
             response = requests.get(url)
             data = response.json()
             errs = 0
@@ -66,7 +59,6 @@ def get_nyt_data(start='1/19', end='12/19'):
     return df
 
 if __name__ == "__main__":
-
     df = get_nyt_data()
     df.to_csv('nyt2019.csv',index=False)
     print("Pulled data for {} articles".format(len(df)))
