@@ -11,3 +11,6 @@ Word embedding
 - [GloVe](https://nlp.stanford.edu/projects/glove/) embedding transforms text to vector representations
 RNN layers
 - vector representations then used to train LSTM recurrent neural network
+
+Model Summary:
+[Model Summary](https://github.com/trevorwitter/nyt-section-classification/blob/master/images/model_summary.png)
