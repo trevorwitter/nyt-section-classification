@@ -2,10 +2,8 @@ import pandas as pd
 import requests
 import config
 from datetime import datetime
-#import numpy as np
-#from bs4 import BeautifulSoup
 import json
-#import os
+
 
 def get_nyt_data(start='1/19', end='12/19'):
     """
